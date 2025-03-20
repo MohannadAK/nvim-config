@@ -9,7 +9,13 @@ map("i", "jj", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
 -- Move line up
-map("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
--- Move line down (optional, for completeness)
-map("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+map("n", "<A-k>", ":m .-2<CR>==", opts)
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+-- Move line down
+map("n", "<A-j>", ":m .+1<CR>==", opts)
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)

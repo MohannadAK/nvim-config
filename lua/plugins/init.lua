@@ -76,4 +76,19 @@ return {
       })
     end,
   },
+
+-- Add presence.nvim for Discord Rich Presence
+{
+    "andweeb/presence.nvim",
+    lazy = false,
+    config = function()
+      require("presence").setup({
+        neovim_image_text = "Who wrote this shit?",
+        main_image = "neovim",
+        enable_line_number = false,
+        buttons = { { label = "GitHub", url = "https://github.com/MohannadAK" } },
+        -- log_level = "debug",
+      })
+    end
+  },
 }
